@@ -36,7 +36,7 @@ function ExpenseModal({show, handleClose, addExpense, state, remove}) {
     return (
         <Modal show={show !== 0} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Add User</Modal.Title>
+                <Modal.Title>{show === -1 ? 'Add Expense' : 'Edit Expense'}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
