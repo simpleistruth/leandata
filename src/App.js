@@ -82,6 +82,16 @@ function App() {
     }
   }
 
+  const generateUserExpense = (userId) => {
+    let out = 0
+    Object.values(state.expenses).forEach((expense) => {
+      if (parseInt(expense.userId) === userId) {
+        out += expense.cost
+      }
+    })
+    return out
+  }
+
   const generateTotal = () => {
     let out = {'Food': 0, 'Travel': 0, 'Health': 0, 'Supplies': 0}
     Object.values(state.expenses).map(expense => {
@@ -135,12 +145,14 @@ function App() {
                 <tr>
                   <th>First Name</th>
                   <th>Last Name</th>
+                  <th>Total Expense</th>
                 </tr>
               </thead>
               {Object.values(state.users).map(user => (<tbody>
                 <tr eventkey={user.id} onClick={(e) => setShowUser(e.currentTarget.getAttribute('eventkey'))}>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
+                  <td>{generateUserExpense(user.id)}</td>
                 </tr>
               </tbody>))}
             </Table>
