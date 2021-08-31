@@ -11,6 +11,7 @@ function App() {
   const [showUser, setShowUser] = useState(0);
   const [showExpense, setShowExpense] = useState(0);
   const [state, setState] = useState({users: {}, expenses: {}})
+  console.log(state)
 
   const addUser = (user) => {
     if (user.id) {
@@ -93,6 +94,31 @@ function App() {
     return Object.entries(out)
   }
 
+  const handleDemo = () => {
+    setState({expenses: {
+      1: {id: 1, userId: "2", category: "Travel", cost: 2341},
+      2: {id: 2, userId: "1", category: "Travel", cost: 233},
+      3: {id: 3, userId: "4", category: "Health", cost: 84},
+      4: {id: 4, userId: "5", category: "Health", cost: 152},
+      5: {id: 5, userId: "1", category: "Food", cost: 773},
+      6: {id: 6, userId: "5", category: "Supplies", cost: 745},
+      7: {id: 7, userId: "3", category: "Supplies", cost: 3333},
+      8: {id: 8, userId: "5", category: "Food", cost: 45},
+      9: {id: 9, userId: "4", category: "Health", cost: 34},
+      10: {id: 10, userId: "5", category: "Health", cost: 3500},
+      11: {id: 11, userId: "5", category: "Health", cost: 523},
+      },
+      users: {
+      1: {id: 1, firstName: "Joe", lastName: "schmo", total: 0},
+      2: {id: 2, firstName: "Bob", lastName: "smith", total: 0},
+      3: {id: 3, firstName: "Will", lastName: "Shi", total: 0},
+      4: {id: 4, firstName: "Bob", lastName: "builder", total: 0},
+      5: {id: 5, firstName: "Michael", lastName: "garcia", total: 0},
+    }})
+    setUserId(6)
+    setExpenseId(12)
+  }
+
   return (
     <div className="App">
       <UserModal show={showUser} handleClose={() => setShowUser(0)} addUser={(user) => addUser(user)} state={state} remove={handleRemove} />
@@ -166,6 +192,7 @@ function App() {
           </div>
         </div>
       </div>
+      <button onClick={handleDemo}>Demo</button>
     </div>
   );
 }
