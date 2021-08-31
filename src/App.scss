@@ -1,0 +1,45 @@
+.dropdown-toggle,
+.dropdown-menu {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+
+
+  table {
+    margin: 0;
+  }
+}
+
+.table-wrapper {
+  width: 30%;
+}
+
+.table1 {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 75vh;
+}
+
+.table-head {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+
+  img {
+    position: absolute;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+}
